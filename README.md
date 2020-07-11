@@ -27,3 +27,8 @@ Un endpoint para entrenar el modelo.
 
 Un endpoint para predecir si un review es bueno o malo 
 - /predict?reivews="review to predict"
+
+Para correr el proyecto se hace con el siguiente comando.
+``` bash
+uvicorn api.main:app --reload
+```
