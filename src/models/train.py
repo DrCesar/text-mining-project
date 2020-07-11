@@ -9,7 +9,6 @@ from src.data.prepare_data import read_sample, create_classes
 from src.features.tokenize import tokenize_classes
 
 
-logging.basicConfig(format='%(levelname)s:%(message)s', level=logging.DEBUG)
 
 
 def train():
@@ -23,8 +22,8 @@ def train():
 
     dictionary = create_dictionary([negative_words, positive_words])
 
-    negative_split = split_data(negative_words, (0.8, 0.0, 0.0))
-    positive_split = split_data(positive_words, (0.8, 0.0, 0.0))
+    negative_split = split_data(negative_words, (1, 0.0, 0.0))
+    positive_split = split_data(positive_words, (1, 0.0, 0.0))
 
     negative_bow = dictionary.doc2bow(negative_split['train'])
     positive_bow = dictionary.doc2bow(positive_split['train'])

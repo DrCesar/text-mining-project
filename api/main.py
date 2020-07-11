@@ -11,13 +11,13 @@ app = FastAPI()
 
 @app.get("/")
 async def test():
-    return { 'return': 'hello world' }
+    return { 'result': 'hello world' }
 
 @app.get('/train')
 async def train_model():
     train()
 
-    return {'Result': 'model trained'}
+    return { 'result': 'model trained' }
 
 
 @app.get('/predict')
@@ -28,7 +28,7 @@ async def predict_review(reviews: List[str] = Query(..., description='Reviews to
     response = [
         {
             'id': idx + 1,
-            'sentence': review,
+            'review': review,
             'prediction': sentiment
         }
         for idx, (review, sentiment) in enumerate(zip(reviews, predictions))
